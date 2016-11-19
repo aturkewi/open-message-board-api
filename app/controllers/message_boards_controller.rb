@@ -7,7 +7,14 @@ class MessageBoardsController < ApplicationController
   def create
     message_board = MessageBoard.new(message_board_params)
     if message_board.save
-      redirect_to '/message_boards'
+      render json: {
+        results: {
+          name: message_board.name,
+          id: message_board.id,
+          message:"Message board created"
+        },
+        status: 200
+      }, status: 200
     else
       render json: {
         error: message_board.errors.full_messages,

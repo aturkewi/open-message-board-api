@@ -14,7 +14,16 @@ class MessagesController < ApplicationController
   def create
     message = @mb.messages.create(message_params)
     if message.save
-      redirect_to "/message_boards/#{@mb.name}/messages"
+      render json: {
+        results: {
+          user_name: message.user_name, 
+          id: message.id,
+          content: message.content,
+          message_board: @mb.name,
+          message: "Message created!"
+        },
+        status: 200
+      }, status: 200
     else
       render json: {
         error: message.errors.full_messages,
