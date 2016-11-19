@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get '/' => 'welcome#index'
+
   get 'message_boards/:board_name/messages' => 'messages#index'
   post 'message_boards/:board_name/messages' => 'messages#create'
   
