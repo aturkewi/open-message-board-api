@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'message_boards/:board_name/messages' => 'messages#index'
+  post 'message_boards/:board_name/messages' => 'messages#create'
+  
   get 'message_boards' => 'message_boards#index'
   post 'message_boards' => 'message_boards#create'
   
-  get 'message_boards/:board_name' => 'messages#index'
-  post 'message_boards/:board_name' => 'messages#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
