@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'pry'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'pg'
+gem 'rack-cors'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
