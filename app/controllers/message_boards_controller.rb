@@ -5,6 +5,7 @@ class MessageBoardsController < ApplicationController
   end
 
   def create
+    binding.pry
     message_board = MessageBoard.new(message_board_params)
     if message_board.save
       render json: {
@@ -26,7 +27,6 @@ class MessageBoardsController < ApplicationController
   private
   
   def message_board_params
-    json_params = ActionController::Parameters.new( {message_board: JSON.parse(params['message_board'])} )
-    json_params.require(:message_board).permit("name")
+    params.require(:message_board).permit("name")
   end
 end
