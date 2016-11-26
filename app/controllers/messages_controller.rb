@@ -39,6 +39,7 @@ class MessagesController < ApplicationController
   end
   
   def message_params
+    json_params = ActionController::Parameters.new( {message: JSON.parse(params['message'])} )
     params.require(:message).permit(:user_name, :content)
   end
 end

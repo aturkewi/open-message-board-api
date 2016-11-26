@@ -26,6 +26,7 @@ class MessageBoardsController < ApplicationController
   private
   
   def message_board_params
-    params.require(:message_board).permit(:name)
+    json_params = ActionController::Parameters.new( {message_board: JSON.parse(params['message_board'])} )
+    json_params.require(:message_board).permit("name")
   end
 end
