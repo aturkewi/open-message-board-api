@@ -5,7 +5,6 @@ class MessageBoardsController < ApplicationController
   end
 
   def create
-    binding.pry
     message_board = MessageBoard.new(message_board_params)
     if message_board.save
       render json: {
