@@ -35,7 +35,7 @@ class MessagesController < ApplicationController
   private
   
   def get_message_board
-    @mb = MessageBoard.find_by(name: params[:board_name])
+    @mb = MessageBoard.find_by(slug: params[:slug])
   end
   
   def message_params
