@@ -1,7 +1,11 @@
 class MessageBoard < ActiveRecord::Base
   
-  validates :name, uniqueness: true
+  before_validation :create_slug
+  
+  validates :name, :slug, uniqueness: true
   
   has_many :messages
+  
+  
   
 end
