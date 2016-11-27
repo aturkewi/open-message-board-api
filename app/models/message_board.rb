@@ -6,6 +6,8 @@ class MessageBoard < ActiveRecord::Base
   
   has_many :messages
   
-  
+  def create_slug
+    self.slug = name.downcase.gsub(" ", "_")
+  end
   
 end
